@@ -241,7 +241,7 @@
     };
 
     document.addEventListener("keypress", function(event) {
-        if (event.key === "Enter" && document.getElementById('loginScreen').style.display !== 'none') {
+        if (event.key === "Enter" && document.getElementById('loginScreen').style.setProperty('display','none','important') ; {
             handleLogin();
         }
     });
@@ -251,6 +251,9 @@
         const pass = document.getElementById('passwordInput').value.trim();
         const errorBox = document.getElementById('loginError');
 
-        if (USERS[user] && USERS[user].pass === pass) {
+        if (USERS[user] && USERS[user].pass === pass) 
+        {
+            document.getElementById('loginScreen').style.setProperty('display','none','important') ;
+            document.getElementById('appSecreen').style.setProperty('display','block','important') ;
             errorBox.style.display = 'none';
             const roleData = USERS[user];
