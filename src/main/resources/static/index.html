@@ -3,12 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>مستشفى الحياة التخصصي | تسجيل الدخول</title>
+    <title>بوابة النظام الطبي المتكامل | تسجيل الدخول</title>
     <style>
         * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
         body { margin: 0; background: #eef3f8; color: #1e293b; }
 
-        /* تصميم شاشة تسجيل الدخول */
         #loginScreen {
             min-height: 100vh;
             display: flex;
@@ -55,7 +54,6 @@
             border: 1.5px solid #cbd5e1;
             border-radius: 8px;
             font-size: 15px;
-            transition: border-color 0.2s;
             direction: ltr;
             text-align: left;
         }
@@ -70,7 +68,6 @@
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
-            transition: background 0.2s;
         }
         .btn-login:hover { background: #083b6b; }
         .error-msg {
@@ -92,7 +89,6 @@
             border-top: 1px solid #e2e8f0;
         }
 
-        /* تصميم لوحة تحكم المستشفى بعد الدخول */
         #appScreen { display: none; }
         .navbar {
             background: #0a4d8c;
@@ -101,9 +97,8 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
-        .navbar-brand { font-size: 20px; font-weight: bold; display: flex; align-items: center; gap: 10px; }
+        .navbar-brand { font-size: 20px; font-weight: bold; }
         .user-info { display: flex; align-items: center; gap: 15px; font-size: 14px; }
         .btn-logout {
             background: #dc2626;
@@ -157,7 +152,6 @@
             width: 100%;
             font-size: 15px;
         }
-        button.action:hover { background: #0f766e; }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
         th { background: #f1f5f9; color: #0a4d8c; }
@@ -166,24 +160,24 @@
 </head>
 <body>
 
-<!-- 1. شاشة تسجيل الدخول للموظفين -->
 <div id="loginScreen">
     <div class="login-card">
         <div class="login-header">
             <div class="hospital-logo">🏥</div>
-            <h3>مستشفى الحياة الخصصي</h3>
+            <h2>مستشفى الرعاية الطبية</h2>
+            <p>نظام إدارة المستشفيات والمراكز الصحية المتكامل</p>
         </div>
         <div class="login-body">
             <div id="loginError" class="error-msg">اسم المستخدم أو كلمة المرور غير صحيحة!</div>
             <div class="form-group">
                 <label>اسم المستخدم (Username)</label>
-                <input type="text" id="usernameInput" placeholder="admin / doctor / lab / pharm" onkeydown="if(event.key==='Enter') handleLogin()">
+                <input type="text" id="usernameInput" placeholder="admin / doctor / lab / pharm">
             </div>
             <div class="form-group">
                 <label>كلمة المرور (Password)</label>
-                <input type="password" id="passwordInput" placeholder="••••••••" onkeydown="if(event.key==='Enter') handleLogin()">
+                <input type="password" id="passwordInput" placeholder="••••••••">
             </div>
-            <button class="btn-login" onclick="handleLogin()">تسجيل الدخول إلى النظام</button>
+            <button type="button" class="btn-login" onclick="handleLogin()">تسجيل الدخول إلى النظام</button>
         </div>
         <div class="login-footer">
             جميع الحقوق محفوظة © 2026 | بوابة الموظفين المعتمدة
@@ -191,25 +185,23 @@
     </div>
 </div>
 
-<!-- 2. شاشة النظام الطبي بعد تسجيل الدخول -->
 <div id="appScreen">
     <div class="navbar">
         <div class="navbar-brand">🏥 مستشفى الرعاية الطبية - النظام الموحد</div>
         <div class="user-info">
             <span id="welcomeUser">مرحباً</span>
-            <button class="btn-logout" onclick="logout()">تسجيل خروج</button>
+            <button type="button" class="btn-logout" onclick="logout()">تسجيل خروج</button>
         </div>
     </div>
 
     <div class="container">
         <div class="tabs" id="navTabs">
-            <button class="tab-btn" id="btn-reception" onclick="showTab('reception', this)">1. الاستقبال</button>
-            <button class="tab-btn" id="btn-clinic" onclick="showTab('clinic', this)">2. العيادة</button>
-            <button class="tab-btn" id="btn-lab" onclick="showTab('lab', this)">3. المختبر</button>
-            <button class="tab-btn" id="btn-pharmacy" onclick="showTab('pharmacy', this)">4. الصيدلية</button>
+            <button type="button" class="tab-btn" id="btn-reception" onclick="showTab('reception')">1. الاستقبال</button>
+            <button type="button" class="tab-btn" id="btn-clinic" onclick="showTab('clinic')">2. العيادة</button>
+            <button type="button" class="tab-btn" id="btn-lab" onclick="showTab('lab')">3. المختبر</button>
+            <button type="button" class="tab-btn" id="btn-pharmacy" onclick="showTab('pharmacy')">4. الصيدلية</button>
         </div>
 
-        <!-- قسم الاستقبال -->
         <div id="reception" class="section">
             <h3>📋 تسجيل زيارة مريض جديد</h3>
             <input type="text" id="pName" placeholder="اسم المريض الرباعي">
@@ -220,31 +212,27 @@
                 <option value="الأطفال">عيادة الأطفال</option>
                 <option value="الطوارئ">قسم الطوارئ</option>
             </select>
-            <button class="action" onclick="addPatient()">تسجيل وتحويل للعيادة</button>
+            <button type="button" class="action" onclick="addPatient()">تسجيل وتحويل للعيادة</button>
         </div>
 
-        <!-- قسم العيادة -->
         <div id="clinic" class="section">
             <h3>🩺 شاشة الطبيب والعيادات الخارجية</h3>
-            <div style="overflow-x:auto;"><table id="clinicTable"></table></div>
+            <div style="overflow-x:auto;"><table id="clinicTable"><tr><th>جاري تحميل البيانات...</th></tr></table></div>
         </div>
 
-        <!-- قسم المختبر -->
         <div id="lab" class="section">
             <h3>🔬 شاشة المختبر والتحاليل الطبية</h3>
-            <div style="overflow-x:auto;"><table id="labTable"></table></div>
+            <div style="overflow-x:auto;"><table id="labTable"><tr><th>جاري تحميل البيانات...</th></tr></table></div>
         </div>
 
-        <!-- قسم الصيدلية -->
         <div id="pharmacy" class="section">
             <h3>💊 شاشة الصيدلية وصرف الأدوية</h3>
-            <div style="overflow-x:auto;"><table id="pharmacyTable"></table></div>
+            <div style="overflow-x:auto;"><table id="pharmacyTable"><tr><th>جاري تحميل البيانات...</th></tr></table></div>
         </div>
     </div>
 </div>
 
 <script>
-    // حسابات الموظفين الافتراضية والصلاحيات
     const USERS = {
         'admin':  { pass: 'admin',  name: 'الإدارة والاستقبال (Admin)', defaultTab: 'reception', allowed: ['reception', 'clinic', 'lab', 'pharmacy'] },
         'doctor': { pass: 'doctor', name: 'الطبيب المناوب (Doctor)',   defaultTab: 'clinic',    allowed: ['clinic'] },
@@ -252,5 +240,17 @@
         'pharm':  { pass: 'pharm',  name: 'الصيدلي المناوب (Pharm)',   defaultTab: 'pharmacy',  allowed: ['pharmacy'] }
     };
 
+    document.addEventListener("keypress", function(event) {
+        if (event.key === "Enter" && document.getElementById('loginScreen').style.display !== 'none') {
+            handleLogin();
+        }
+    });
+
     function handleLogin() {
         const user = document.getElementById('usernameInput').value.trim().toLowerCase();
+        const pass = document.getElementById('passwordInput').value.trim();
+        const errorBox = document.getElementById('loginError');
+
+        if (USERS[user] && USERS[user].pass === pass) {
+            errorBox.style.display = 'none';
+            const roleData = USERS[user];
