@@ -5,43 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>بوابة النظام الطبي المتكامل | تسجيل الدخول</title>
     <style>
-        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        * { box-sizing: border-box; font-family: 'Segoe UI', Tahoma, sans-serif; }
         body { margin: 0; background: #eef3f8; color: #1e293b; }
-
         #loginScreen {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: linear-gradient(135deg, #0a4d8c 0%, #0ea5e9 100%);
-            padding: 20px;
+            min-height: 100vh; display: flex; align-items: center; justify-content: center;
+            background: linear-gradient(135deg, #0a4d8c 0%, #0ea5e9 100%); padding: 20px;
         }
         .login-card {
-            background: #ffffff;
-            width: 100%;
-            max-width: 420px;
-            border-radius: 16px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
-            text-align: center;
+            background: #fff; width: 100%; max-width: 420px; border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2); overflow: hidden; text-align: center;
         }
-        .login-header {
-            background: #f8fafc;
-            padding: 30px 20px 20px;
-            border-bottom: 1px solid #e2e8f0;
-        }
+        .login-header { background: #f8fafc; padding: 30px 20px 20px; border-bottom: 1px solid #e2e8f0; }
         .hospital-logo {
-            width: 65px;
-            height: 65px;
-            background: #0a4d8c;
-            color: white;
-            border-radius: 50%;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 32px;
-            margin-bottom: 12px;
-            box-shadow: 0 4px 12px rgba(10, 77, 140, 0.3);
+            width: 65px; height: 65px; background: #0a4d8c; color: #fff; border-radius: 50%;
+            display: inline-flex; align-items: center; justify-content: center; font-size: 32px; margin-bottom: 12px;
         }
         .login-header h2 { margin: 0; color: #0a4d8c; font-size: 22px; }
         .login-header p { margin: 6px 0 0; color: #64748b; font-size: 14px; }
@@ -49,109 +26,35 @@
         .form-group { margin-bottom: 18px; }
         .form-group label { display: block; margin-bottom: 6px; font-weight: 600; color: #334155; font-size: 14px; }
         .form-group input {
-            width: 100%;
-            padding: 12px 14px;
-            border: 1.5px solid #cbd5e1;
-            border-radius: 8px;
-            font-size: 15px;
-            direction: ltr;
-            text-align: left;
+            width: 100%; padding: 12px 14px; border: 1.5px solid #cbd5e1; border-radius: 8px;
+            font-size: 15px; direction: ltr; text-align: left;
         }
-        .form-group input:focus { outline: none; border-color: #0a4d8c; }
         .btn-login {
-            width: 100%;
-            padding: 13px;
-            background: #0a4d8c;
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: bold;
-            cursor: pointer;
+            width: 100%; padding: 13px; background: #0a4d8c; color: #fff; border: none;
+            border-radius: 8px; font-size: 16px; font-weight: bold; cursor: pointer;
         }
-        .btn-login:hover { background: #083b6b; }
         .error-msg {
-            color: #dc2626;
-            background: #fef2f2;
-            border: 1px solid #fecaca;
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 14px;
-            margin-bottom: 15px;
-            display: none;
-            text-align: center;
+            color: #dc2626; background: #fef2f2; border: 1px solid #fecaca; padding: 10px;
+            border-radius: 8px; font-size: 14px; margin-bottom: 15px; display: none; text-align: center;
         }
-        .login-footer {
-            background: #f8fafc;
-            padding: 12px;
-            font-size: 12px;
-            color: #64748b;
-            border-top: 1px solid #e2e8f0;
-        }
-
+        .login-footer { background: #f8fafc; padding: 12px; font-size: 12px; color: #64748b; border-top: 1px solid #e2e8f0; }
         #appScreen { display: none; }
         .navbar {
-            background: #0a4d8c;
-            color: white;
-            padding: 14px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+            background: #0a4d8c; color: #fff; padding: 14px 25px;
+            display: flex; justify-content: space-between; align-items: center;
         }
         .navbar-brand { font-size: 20px; font-weight: bold; }
         .user-info { display: flex; align-items: center; gap: 15px; font-size: 14px; }
-        .btn-logout {
-            background: #dc2626;
-            color: white;
-            border: none;
-            padding: 8px 14px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-        }
+        .btn-logout { background: #dc2626; color: #fff; border: none; padding: 8px 14px; border-radius: 6px; cursor: pointer; font-weight: bold; }
         .container { max-width: 1100px; margin: 25px auto; padding: 0 15px; }
         .tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
-        .tab-btn {
-            flex: 1;
-            min-width: 140px;
-            padding: 12px;
-            border: none;
-            background: #cbd5e1;
-            color: #1e293b;
-            cursor: pointer;
-            font-weight: bold;
-            border-radius: 8px;
-            font-size: 15px;
-        }
-        .tab-btn.active { background: #0a4d8c; color: white; }
-        .section {
-            display: none;
-            background: white;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
+        .tab-btn { flex: 1; min-width: 140px; padding: 12px; border: none; background: #cbd5e1; color: #1e293b; cursor: pointer; font-weight: bold; border-radius: 8px; font-size: 15px; }
+        .tab-btn.active { background: #0a4d8c; color: #fff; }
+        .section { display: none; background: #fff; padding: 25px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         .section.active { display: block; }
         .section h3 { margin-top: 0; color: #0a4d8c; border-bottom: 2px solid #e2e8f0; padding-bottom: 10px; }
-        .section input, .section select {
-            padding: 10px;
-            margin: 6px 0 12px;
-            width: 100%;
-            border: 1px solid #cbd5e1;
-            border-radius: 6px;
-            font-size: 14px;
-        }
-        button.action {
-            background: #0d9488;
-            color: white;
-            border: none;
-            padding: 11px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: bold;
-            width: 100%;
-            font-size: 15px;
-        }
+        .section input, .section select { padding: 10px; margin: 6px 0 12px; width: 100%; border: 1px solid #cbd5e1; border-radius: 6px; font-size: 14px; }
+        button.action { background: #0d9488; color: #fff; border: none; padding: 11px 18px; border-radius: 6px; cursor: pointer; font-weight: bold; width: 100%; font-size: 15px; }
         table { width: 100%; border-collapse: collapse; margin-top: 15px; }
         th, td { border: 1px solid #e2e8f0; padding: 10px; text-align: center; font-size: 14px; }
         th { background: #f1f5f9; color: #0a4d8c; }
@@ -179,9 +82,7 @@
             </div>
             <button type="button" class="btn-login" onclick="handleLogin()">تسجيل الدخول إلى النظام</button>
         </div>
-        <div class="login-footer">
-            جميع الحقوق محفوظة © 2026 | بوابة الموظفين المعتمدة
-        </div>
+        <div class="login-footer">جميع الحقوق محفوظة © 2026 | بوابة الموظفين المعتمدة</div>
     </div>
 </div>
 
@@ -193,15 +94,13 @@
             <button type="button" class="btn-logout" onclick="logout()">تسجيل خروج</button>
         </div>
     </div>
-
     <div class="container">
-        <div class="tabs" id="navTabs">
+        <div class="tabs">
             <button type="button" class="tab-btn" id="btn-reception" onclick="showTab('reception')">1. الاستقبال</button>
             <button type="button" class="tab-btn" id="btn-clinic" onclick="showTab('clinic')">2. العيادة</button>
             <button type="button" class="tab-btn" id="btn-lab" onclick="showTab('lab')">3. المختبر</button>
             <button type="button" class="tab-btn" id="btn-pharmacy" onclick="showTab('pharmacy')">4. الصيدلية</button>
         </div>
-
         <div id="reception" class="section">
             <h3>📋 تسجيل زيارة مريض جديد</h3>
             <input type="text" id="pName" placeholder="اسم المريض الرباعي">
@@ -214,20 +113,17 @@
             </select>
             <button type="button" class="action" onclick="addPatient()">تسجيل وتحويل للعيادة</button>
         </div>
-
         <div id="clinic" class="section">
             <h3>🩺 شاشة الطبيب والعيادات الخارجية</h3>
-            <div style="overflow-x:auto;"><table id="clinicTable"><tr><th>جاري تحميل البيانات...</th></tr></table></div>
+            <div style="overflow-x:auto;"><table id="clinicTable"></table></div>
         </div>
-
         <div id="lab" class="section">
             <h3>🔬 شاشة المختبر والتحاليل الطبية</h3>
-            <div style="overflow-x:auto;"><table id="labTable"><tr><th>جاري تحميل البيانات...</th></tr></table></div>
+            <div style="overflow-x:auto;"><table id="labTable"></table></div>
         </div>
-
         <div id="pharmacy" class="section">
             <h3>💊 شاشة الصيدلية وصرف الأدوية</h3>
-            <div style="overflow-x:auto;"><table id="pharmacyTable"><tr><th>جاري تحميل البيانات...</th></tr></table></div>
+            <div style="overflow-x:auto;"><table id="pharmacyTable"></table></div>
         </div>
     </div>
 </div>
@@ -240,20 +136,46 @@
         'pharm':  { pass: 'pharm',  name: 'الصيدلي المناوب (Pharm)',   defaultTab: 'pharmacy',  allowed: ['pharmacy'] }
     };
 
-    document.addEventListener("keypress", function(event) {
-        if (event.key === "Enter" && document.getElementById('loginScreen').style.setProperty('display','none','important') ; {
-            handleLogin();
-        }
-    });
-
     function handleLogin() {
         const user = document.getElementById('usernameInput').value.trim().toLowerCase();
         const pass = document.getElementById('passwordInput').value.trim();
         const errorBox = document.getElementById('loginError');
 
-        if (USERS[user] && USERS[user].pass === pass) 
-        {
-            document.getElementById('loginScreen').style.setProperty('display','none','important') ;
-            document.getElementById('appSecreen').style.setProperty('display','block','important') ;
+        if (USERS[user] && USERS[user].pass === pass) {
             errorBox.style.display = 'none';
             const roleData = USERS[user];
+            document.getElementById('welcomeUser').innerText = 'المستخدم: ' + roleData.name;
+
+            ['reception', 'clinic', 'lab', 'pharmacy'].forEach(tab => {
+                const btn = document.getElementById('btn-' + tab);
+                if (btn) btn.style.display = roleData.allowed.includes(tab) ? 'inline-block' : 'none';
+            });
+
+            document.getElementById('loginScreen').style.setProperty('display', 'none', 'important');
+            document.getElementById('appScreen').style.setProperty('display', 'block', 'important');
+            showTab(roleData.defaultTab);
+        } else {
+            errorBox.style.display = 'block';
+        }
+    }
+
+    function logout() {
+        document.getElementById('usernameInput').value = '';
+        document.getElementById('passwordInput').value = '';
+        document.getElementById('appScreen').style.setProperty('display', 'none', 'important');
+        document.getElementById('loginScreen').style.setProperty('display', 'flex', 'important');
+    }
+
+    function showTab(tabId) {
+        document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.getElementById(tabId).classList.add('active');
+        document.getElementById('btn-' + tabId).classList.add('active');
+        loadData();
+    }
+
+    async function addPatient() {
+        const name = document.getElementById('pName').value.trim();
+        const pid = document.getElementById('pId').value.trim();
+        if (!name || !pid) { alert('يرجى إدخال اسم المريض ورقم الهوية'); return; }
+        await fetch('/api/records', {
